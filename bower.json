@@ -1,0 +1,23 @@
+{
+  "name": "chess",
+  "version": "0.0.1",
+  "description": "All front-end third-party resources used somewhere in chess.",
+  "installation": "1. cmd; 2. cd C:\\inetpub\\wwwroot\\chess; 3. bower install",
+  "update": "3. bower update",
+  "dependencies": {
+    "jquery": "*",
+    "moment": "*",
+    "lodash": "*",
+    "bootstrap": "*",
+    "bootstrap-sass": "*",
+    "angular": "*",
+    "angular-resource": "*",
+    "angular-ui-router": "*",
+    "angular-bootstrap": "*",
+    "angular-hint": "*",
+    "angular-chess": "*"
+  },
+  "resolutions": {
+    "angular": "1.3.12"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "chess-node-package",
+  "version": "0.0.1",
+  "description": "All back-end third-party resources used somewhere in chess. Also runs bower to install front-end resources.",
+  "installation": "1. cmd; 2. cd C:\\inetpub\\wwwroot\\chess; 3. npm install",
+  "update": "3. npm update",
+  "dependencies": {
+    "gulp": "*",
+
+    "del": "*",
+
+    "gulp-autoprefixer": "*",
+    "gulp-concat": "*",
+    "gulp-header": "*",
+    "gulp-jshint": "*",
+    "gulp-rename": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-strip-debug": "*",
+    "gulp-util": "*",
+    "gulp-load-plugins": "*",
+
+    "gulp-ng-annotate": "*",
+    "gulp-uglify": "*",
+
+    "gulp-minify-css": "*",
+    "gulp-sass": "*",
+
+    "gulp-traceur": "*",
+    "gulp-karma": "*",
+    "gulp-jasmine": "*",
+
+    "gulp-livereload": "*",
+    "gulp-gh-pages": "*",
+
+    "bower": "*"
+  },
+  "scripts": {
+    "postinstall": "bower install"
+  }
+}
