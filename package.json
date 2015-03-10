@@ -39,6 +39,7 @@
     "gulp-traceur": "*",
     "gulp-karma": "*",
     "gulp-jasmine": "*",
+    "gulp-gh-pages": "*",
     "bower": "*"
   },
   "scripts": {
