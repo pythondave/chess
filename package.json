@@ -2,6 +2,12 @@
   "name": "chess-node-package",
   "version": "0.0.1",
   "description": "Test, build and deployment resources for chess",
+  "author": "Ryan Randall <pythondave@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pythondave/chess"
+  },
+  "private": true,
   "_notes": [
     "What is this file? See: https://docs.nodejitsu.com/articles/getting-started/npm/what-is-the-file-package-json",
     "This file contains:",
@@ -39,8 +45,8 @@
     "gulp-traceur": "*",
     "gulp-karma": "*",
     "gulp-jasmine": "*",
-    "gulp-gh-pages": "*",
-    "bower": "*"
+    "bower": "*",
+    "gh-pages": "*"
   },
   "scripts": {
     "postinstall": "bower install"
@@ -57,13 +63,17 @@
       "base": "../src",
       "images": "shared/images",
       "defaultHtml": "default.html",
-      "htmlTemplates": [ "*/**/*.html" ],
+      "htmlTemplates": [
+        "*/**/*.html"
+      ],
       "js": [
         "config.js",
         "app.js",
         "**/*.js"
       ],
-      "css": [ "app.scss" ]
+      "css": [
+        "app.scss"
+      ]
     },
     "thirdParty": {
       "base": "../bower_components",
@@ -75,7 +85,7 @@
         "angular-ui-router/release/angular-ui-router.min.js",
         "chessboard.js/js/chessboard.min.js",
         "chess.js/chess.min.js",
-        "angular-chessboard/angular-chessboard.min.js",
+        "angular-chessboard/angular-chessboard.js",
         "angular-chess/angular-chess.js"
       ],
       "css": [

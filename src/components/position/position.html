@@ -1,5 +1,9 @@
 <div>
+  <div style="float: left; width: 10em;">
+    <div ng-repeat="p in position.positions">
+      <a ui-sref="position(p)">Position {{$index+1}}</a>
+    </div>
+  </div>
 
-  <board></board>
-
+  <board style="float: left;"></board>
 </div>

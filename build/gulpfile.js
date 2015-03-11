@@ -20,8 +20,9 @@ var pkg = require('../package.json');
 var plugins = loadPlugins({ pattern: ['*'] });
 var helper = require('./modules/helper')(plugins);
 var test = require('./modules/test')(gulp, plugins);
-var dev = require('./modules/build-dev')(gulp, plugins, pkg, helper);
-var production = require('./modules/build-production')(gulp, plugins, pkg, helper);
+var buildDev = require('./modules/build-dev')(gulp, plugins, pkg, helper);
+var buildProduction = require('./modules/build-production')(gulp, plugins, pkg, helper);
+var deploy = require('./modules/deploy')(gulp, plugins);
 pkg = helper.transformPkg(pkg);
 ///
 
@@ -36,11 +37,4 @@ gulp.task('watch', function() {
   gulp.watch(pkg.paths.src.css, ['build-dev-src-css']);
 });
 gulp.task('default', ['build-dev', 'watch']);
-///
-
-/// deploy - push production build to gh-pages
-gulp.task('deploy', function () {
-  return gulp.src('production')
-    .pipe(plugins.ghPages())
-});
 ///

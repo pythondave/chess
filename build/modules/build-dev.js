@@ -98,9 +98,9 @@ module.exports = function (gulp, plugins, pkg, helper) {
     plugins.util.beep();
     return gulp.src(pkg.paths.src.js)
       .pipe(plugins.sourcemaps.init())
-      .pipe(plugins.concat(pkg.paths.dev.srcJs))
       .pipe(plugins.header('"use strict";\n/*\n' + pkg.messages.buildWarning + '\n*/\n\n'))
-      .pipe(plugins.sourcemaps.write({includeContent: false}))
+      .pipe(plugins.concat(pkg.paths.dev.srcJs))
+      .pipe(plugins.sourcemaps.write({includeContent: false, sourceRoot: pkg.paths.src.js}))
       .pipe(gulp.dest('.'));
   });
   ///

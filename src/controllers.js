@@ -1,4 +1,4 @@
 angular.module('dcc.chess')
-.controller('MainCtrl', function($scope) {
+.controller('MainCtrl', function() {
   var vm = this;
 });
