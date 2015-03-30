@@ -1,0 +1,20 @@
+@import "../board/board";
+
+body {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  margin: 2em;
+}
+
+position {
+  h6 {
+    margin: 0.6em 0;  
+  }
+
+  .section {
+    margin: 1em 0;  
+  }
+
+  ul {
+    margin: 0.6em 0;
+  }
+}

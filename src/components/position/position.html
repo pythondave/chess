@@ -5,5 +5,22 @@
     </div>
   </div>
 
-  <board style="float: left;"></board>
+  <board style="float: left;" fen="position.fen"></board>
+
+
+  <div style="float: left; margin: 0 0 0 1em;" ng-if="position.dataLoaded">
+    <div class="section">
+      <h6>FEN</h6>
+      <div>{{position.fen}}</div>
+    </div>
+
+    <div class="section" ng-show="position.myMoves">
+      <h6>My moves</h6>
+      <ul>
+        <li ng-repeat="m in position.myMoves">{{m}}</li>
+      </ul>
+    </div>
+
+    <notes class="section"></notes>
+  </div>
 </div>

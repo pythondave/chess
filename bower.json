@@ -13,6 +13,7 @@
     "angular": "*",
     "angular-resource": "*",
     "angular-ui-router": "*",
+    "angular-mocks": "*",
     "angular-bootstrap": "*",
     "angular-hint": "*",
     "angular-chess": "*"

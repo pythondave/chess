@@ -14,7 +14,7 @@ module.exports = function (gulp, plugins) {
       if (err) {
         plugins.util.log(plugins.util.colors.red('Error:'), err);
       } else {
-        plugins.util.log(plugins.util.colors.green('Success!'));      
+        plugins.util.log(plugins.util.colors.green('Success!'));
       }
     });
   });

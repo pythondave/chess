@@ -4,6 +4,10 @@ Notes:
   "boardjs" - chessboard.js -- graphical chess board (no chess logic)
   "nBoard" - nywtonChessboard - angular-chessboard -- angular wrapper for boardjs
   "board" - dcc.board -- board + logic
+
+todo:
+  orientation + option (auto / switch)
+  latest move + option
 */
 
 angular.module('dcc.board', ['nywton.chess'])
@@ -16,35 +20,30 @@ angular.module('dcc.board', ['nywton.chess'])
     restrict: 'E',
     templateUrl: 'components/board/board.html',
     controller: 'BoardController',
-    controllerAs: 'board'
+    controllerAs: 'board',
+    scope: {
+      fen: '='
+    }
   };
 })
-.controller('BoardController', function($scope, $state, $window) {
+.controller('BoardController', function($scope, $state, chessjs) {
   var vm = this;
 
-  var chess = new $window.Chess(); //chessjs
+  $scope.$watch('fen', function(fen) {
+    if (fen === undefined) return;
 
-  $scope.$on('$stateChangeSuccess', function() {
-    //new state => (if fen invalid) set chessjs fen and set nBoard position
-    $state.params = $state.params || {};
-    var startPositionFen = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
-    var fen = $state.params.fen || startPositionFen; //use start position if no fen
-    var isValidFen = chess.validate_fen(fen);
-    if (!isValidFen) { $state.go('position', { fen: undefined }); } //change state if fen invalid
-
-    chess.load(fen);
-    vm.fen = fen;
-    vm.turn = chess.turn();
+    chessjs.load(fen);
+    vm.turn = chessjs.turn();
     vm.nBoard.position(fen);
   });
 
   vm.onDrop = function(source, target, piece, newPos, oldPos, orientation) {
     //if not a valid move, snapback
-    if ( !chess.move({ from: source, to: target }) ) { return 'snapback'; }
+    if ( !chessjs.move({ from: source, to: target }) ) { return 'snapback'; }
   };
 
   vm.onSnapEnd = function(source, target, piece) {
     //successful move => change state
-    $state.go('position', { fen: chess.fen() });
+    $state.go('position', { fen: chessjs.fen() });
   };
 });

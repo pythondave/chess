@@ -1,7 +1,7 @@
 /* Helper functions (for gulpfile.js)
 */
 
-module.exports = function(plugins) {
+module.exports = function(plugins, _) {
   var o = {};
 
   o.transformPkg = function(pkg) {
@@ -31,6 +31,15 @@ module.exports = function(plugins) {
     } else {
       plugins.util.log(plugins.util.colors.magenta('Folder copied'));
     }
+  };
+
+  o.getFilename = function(str) {
+    //examples: getFilename('a/b.c') -> b.c; getFilename('a\b.c') -> b.c
+    return str.split('\\').pop().split('/').pop();
+  };
+
+  o.getFilenames = function(c) {
+    return _.map(c, o.getFilename);
   };
 
   return o;

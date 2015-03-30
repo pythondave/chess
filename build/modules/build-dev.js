@@ -64,6 +64,10 @@ module.exports = function (gulp, plugins, pkg, helper) {
     plugins.util.beep();
     return gulp.src(pkg.paths.src.defaultHtml)
       .pipe(plugins.header('<!-- ' + pkg.messages.buildWarning + '-->\n\n'))
+      .pipe(plugins.htmlReplace({
+        css: helper.getFilenames([ pkg.paths.dev.thirdPartyCss, pkg.paths.dev.srcCss ]),
+        js: helper.getFilenames([ pkg.paths.dev.thirdPartyJs, pkg.paths.dev.srcJs,  pkg.paths.dev.srcHtmlTemplates ])
+      }))
       .pipe(plugins.rename(pkg.paths.dev.defaultHtml))
       .pipe(gulp.dest('.'));
   });
